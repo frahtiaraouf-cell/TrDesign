@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignTR - Creative Design Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --primary-light: #64b5f6;
+            --accent: #00bcd4;
+            --light: #f5f9ff;
+            --dark: #333;
+            --gray: #777;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-switch {
+            display: flex;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+        .lang-switch button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-switch button.active {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 115, 232, 0.9), rgba(13, 71, 161, 0.9)), url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: #0097a7;
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Arabic Specific Styles */
+        [lang="ar"] {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        [lang="ar"] .hero h1,
+        [lang="ar"] .section-title h2 {
+            font-weight: 700;
+        }
+
+        [lang="en"] {
+            direction: ltr;
+        }
+
+        /* Hidden content for language switching */
+        .lang-ar {
+            display: none;
+        }
+
+        /* Show appropriate language content */
+        body:lang(ar) .lang-ar {
+            display: block;
+        }
+
+        body:lang(en) .lang-en {
+            display: block;
+        }
+    </style>
+</head>
+<body lang="ar">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-palette"></i>
+                    <span class="lang-en">DesignTR</span>
+                    <span class="lang-ar">ديزان تي آر</span>
+                </div>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#" class="lang-en">Home</a><a href="#" class="lang-ar">الرئيسية</a></li>
+                        <li><a href="#services" class="lang-en">Services</a><a href="#services" class="lang-ar">خدماتنا</a></li>
+                        <li><a href="#pricing" class="lang-en">Pricing</a><a href="#pricing" class="lang-ar">الأسعار</a></li>
+                        <li><a href="#contact" class="lang-en">Contact</a><a href="#contact" class="lang-ar">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="lang-switch">
+                    <button id="lang-ar" class="active">العربية</button>
+                    <button id="lang-en">English</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="lang-en">Professional Design Services</h1>
+            <h1 class="lang-ar">خدمات التصميم الاحترافية</h1>
+            
+            <p class="lang-en">We create stunning thumbnails and video montages that capture attention and tell your story effectively.</p>
+            <p class="lang-ar">نحن نصنع تصاميم رائعة ومقاطع فيديو مونتاج تجذب الانتباه وتروي قصتك بفعالية.</p>
+            
+            <a href="#services" class="btn lang-en">Our Services</a>
+            <a href="#services" class="btn lang-ar">خدماتنا</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Our Services</h2>
+                <h2 class="lang-ar">خدماتنا</h2>
+                
+                <p class="lang-en">We offer a range of design services to meet your creative needs</p>
+                <p class="lang-ar">نقدم مجموعة من خدمات التصميم لتلبية احتياجاتك الإبداعية</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="lang-en">Thumbnail Design</h3>
+                    <h3 class="lang-ar">تصميم الثمبنيل</h3>
+                    
+                    <p class="lang-en">Eye-catching thumbnails that increase click-through rates</p>
+                    <p class="lang-ar">تصاميم ثمبنيل جذابة تزيد من معدلات النقر</p>
+                    
+                    <div class="price">$15</div>
+                    
+                    <a href="#contact" class="btn lang-en">Order Now</a>
+                    <a href="#contact" class="btn lang-ar">اطلب الآن</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="lang-en">Short Video Montage</h3>
+                    <h3 class="lang-ar">مونتاج فيديو قصير</h3>
+                    
+                    <p class="lang-en">Engaging short videos perfect for social media</p>
+                    <p class="lang-ar">مقاطع فيديو قصيرة جذابة مثالية لوسائل التواصل الاجتماعي</p>
+                    
+                    <div class="price">$30</div>
+                    
+                    <a href="#contact" class="btn lang-en">Order Now</a>
+                    <a href="#contact" class="btn lang-ar">اطلب الآن</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="lang-en">Video Montage (<5 min)</h3>
+                    <h3 class="lang-ar">مونتاج فيديو (أقل من 5 دقائق)</h3>
+                    
+                    <p class="lang-en">Professional video editing for content under 5 minutes</p>
+                    <p class="lang-ar">مونتاج فيديو احترافي للمحتوى الأقل من 5 دقائق</p>
+                    
+                    <div class="price">$50</div>
+                    
+                    <a href="#contact" class="btn lang-en">Order Now</a>
+                    <a href="#contact" class="btn lang-ar">اطلب الآن</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3 class="lang-en">Video Montage (>5 min)</h3>
+                    <h3 class="lang-ar">مونتاج فيديو (أكثر من 5 دقائق)</h3>
+                    
+                    <p class="lang-en">Comprehensive video editing for longer content</p>
+                    <p class="lang-ar">مونتاج فيديو شامل للمحتوى الأطول</p>
+                    
+                    <div class="price">$80</div>
+                    
+                    <a href="#contact" class="btn lang-en">Order Now</a>
+                    <a href="#contact" class="btn lang-ar">اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing" style="background-color: #f0f7ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Legendary Prices</h2>
+                <h2 class="lang-ar">أسعارنا الأسطورية</h2>
+                
+                <p class="lang-en">Quality services at prices accessible to everyone</p>
+                <p class="lang-ar">خدمات عالية الجودة بأسعار في متناول الجميع</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 class="lang-en">Thumbnail Design</h3>
+                    <h3 class="lang-ar">تصميم الثمبنيل</h3>
+                    
+                    <div class="price">$15</div>
+                    
+                    <ul style="text-align: left; margin: 1.5rem 0; list-style: none;">
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> High resolution</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> دقة عالية</li>
+                        
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Custom design</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> تصميم مخصص</li>
+                        
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Fast delivery</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> تسليم سريع</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="lang-en">Video Montage Packages</h3>
+                    <h3 class="lang-ar">باقات مونتاج الفيديو</h3>
+                    
+                    <div class="price" style="font-size: 1.5rem; margin: 1rem 0;">
+                        <span class="lang-en">Starting at $30</span>
+                        <span class="lang-ar">تبدأ من 30$</span>
+                    </div>
+                    
+                    <ul style="text-align: left; margin: 1.5rem 0; list-style: none;">
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Professional editing</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> مونتاج احترافي</li>
+                        
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Transitions & effects</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> انتقالات وتأثيرات</li>
+                        
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Audio enhancement</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> تحسين الصوت</li>
+                        
+                        <li class="lang-en"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Color correction</li>
+                        <li class="lang-ar"><i class="fas fa-check" style="color: var(--accent); margin-left: 10px;"></i> تصحيح الألوان</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-en">Contact Us</h2>
+                <h2 class="lang-ar">اتصل بنا</h2>
+                
+                <p class="lang-en">Get in touch to discuss your project</p>
+                <p class="lang-ar">تواصل معنا لمناقشة مشروعك</p>
+            </div>
+            
+            <div class="contact-info">
+                <a href="mailto:designtr249@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>designtr249@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p class="lang-en">&copy; 2023 DesignTR. All rights reserved.</p>
+                    <p class="lang-ar">&copy; 2023 ديزان تي آر. جميع الحقوق محفوظة.</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switching
+        document.getElementById('lang-ar').addEventListener('click', function() {
+            document.body.setAttribute('lang', 'ar');
+            document.querySelector('#lang-ar').classList.add('active');
+            document.querySelector('#lang-en').classList.remove('active');
+        });
+
+        document.getElementById('lang-en').addEventListener('click', function() {
+            document.body.setAttribute('lang', 'en');
+            document.querySelector('#lang-en').classList.add('active');
+            document.querySelector('#lang-ar').classList.remove('active');
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
